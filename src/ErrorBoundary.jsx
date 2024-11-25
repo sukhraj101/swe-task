@@ -7,21 +7,18 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state to indicate an error occurred
     return { hasError: true, error };
   }
 
   componentDidCatch(error, errorInfo) {
-    // Capture the error and its details
     this.setState({ error, errorInfo });
 
-    // Optionally log the error to an external service
     console.error("Error caught in ErrorBoundary:", error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
-      // Render a fallback UI with error details
+
       return (
         <div style={{ padding: '20px', color: 'red', backgroundColor: '#ffecec' }}>
           <h1>Something went wrong.</h1>
